@@ -173,10 +173,11 @@ void *dequeue(queue_t q)
     // Safety check for NULL queue
    if (!q) return NULL; // Safety check
 
-    if (q->size == 0 && !q->shutdown) {
-        pthread_mutex_unlock(&q->mutex);
-        return NULL; // Return NULL if empty and not shutting down
-    }
+    // this check caused the program to core dump
+    // if (q->size == 0 && !q->shutdown) {
+    //     pthread_mutex_unlock(&q->mutex);
+    //     return NULL; // Return NULL if empty and not shutting down
+    // }
 
     pthread_mutex_lock(&q->mutex);
 
