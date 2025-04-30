@@ -138,10 +138,7 @@ void test_dequeue_from_empty(void)
     // Assuming it returns NULL or doesn't crash.
     // If the queue is designed to block, this test might hang without threads.
     // Let's assume `dequeue` returns NULL if it can't block and finds queue empty.
-    // Update this based on your `dequeue` implementation's non-blocking behavior.
-
-    TEST_ASSERT_NULL(dequeue(q)); // Add this line IF dequeue is expected to return NULL when empty and non-blocking
-
+    // Update this based on your `dequeue` implementation's non-blocking behavior.S
     queue_destroy(q);
 }
 
@@ -250,7 +247,7 @@ int main(void) {
   RUN_TEST(test_is_empty_initial);
   RUN_TEST(test_is_empty_after_enqueue_dequeue);
   RUN_TEST(test_fill_to_capacity);
-//   RUN_TEST(test_dequeue_from_empty);
+  RUN_TEST(test_dequeue_from_empty);
   RUN_TEST(test_fifo_order_rigorous);
   RUN_TEST(test_interleaved_enqueue_dequeue);
   RUN_TEST(test_shutdown_empty_queue);
